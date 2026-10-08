@@ -1,0 +1,68 @@
+/* frontend/styles/theme.css */
+:root {
+  /* Base colors */
+  --color-bg-base: #0d0d0d;
+  --color-bg-card: #161616;
+  --color-text-body: #f2f2f2;
+  --color-text-heading: #ffffff;
+  --color-text-muted: #9a9a9a;
+
+  /* Accent palette */
+  --color-accent-red: #ed1c24;      /* primary */
+  --color-accent-cyan: #00aEEF;
+  --color-accent-magenta: #ec008c;
+  --color-accent-yellow: #fff200;
+  --color-accent-lime: #8dc63f;
+
+  /* Gradient utilities */
+  --gradient-primary: linear-gradient(90deg, var(--color-accent-red), var(--color-accent-magenta), var(--color-accent-yellow), var(--color-accent-cyan));
+}
+
+/* Glass‑morphism backdrop */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Button hover glow */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+.btn-glow:hover::after {
+  opacity: 0.6;
+}
+
+/* Gradient underline for headings/links */
+.gradient-underline {
+  background-image: var(--gradient-primary);
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: background-position 0.5s ease;
+}
+.gradient-underline:hover {
+  background-position: 100% 0%;
+}
+
+/* Hover lift for cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
